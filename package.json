@@ -62,6 +62,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "deploy": "gatsby build && gh-pages -d public -b master -r \"https://$GITHUB_TOKEN@github.com/XKojiMedia/xkojimedia.github.io.git\""
+    "deploy": "gatsby build && gh-pages -d public -b master -r \"https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/XKojiMedia/xkojimedia.github.io.git\""
   }
 }
