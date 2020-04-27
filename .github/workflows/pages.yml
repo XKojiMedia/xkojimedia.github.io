@@ -20,6 +20,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn test
+    - run: |
+        git config --global user.email "samuelimolo4real@gmail.com"
+        git config --global user.name "Samuel Imolorhe"
+
     - run: yarn deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
