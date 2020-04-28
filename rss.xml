@@ -1,45 +1,125 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[XKojiMedia]]></title><description><![CDATA[Website for all things XkojiMedia]]></description><link>https://gatsby-starter-blog-demo.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 27 Apr 2020 18:30:55 GMT</lastBuildDate><item><title><![CDATA[Hello World]]></title><description><![CDATA[This is my first post on my new fake blog! How exciting! I’m sure I’ll write a lot more interesting things in the future. Oh, and here’s a…]]></description><link>https://gatsby-starter-blog-demo.netlify.com/hello-world/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.com/hello-world/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new fake blog! How exciting!&lt;/p&gt;
-&lt;p&gt;I’m sure I’ll write a lot more interesting things in the future.&lt;/p&gt;
-&lt;p&gt;Oh, and here’s a great quote from this Wikipedia on
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Salted_duck_egg&quot;&gt;salted duck eggs&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[XKojiMedia]]></title><description><![CDATA[Website for all things XkojiMedia]]></description><link>https://xkojimedia.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 28 Apr 2020 21:42:18 GMT</lastBuildDate><item><title><![CDATA[Set up a blog with Gatsby, GitHub pages and GitHub actions]]></title><description><![CDATA[This is my first post on my new blog! How exciting! Creating this blog was an interesting process for me since I decided to use Gatsby for…]]></description><link>https://xkojimedia.github.io/blog/set-up-a-blog-with-gatsby-github-pages-and-github-actions/</link><guid isPermaLink="false">https://xkojimedia.github.io/blog/set-up-a-blog-with-gatsby-github-pages-and-github-actions/</guid><pubDate>Mon, 27 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is my first post on my new blog! How exciting! Creating this blog was an interesting process for me since I decided to use Gatsby for it. While I had created a &lt;a href=&quot;https://www.gatsbyjs.org/packages/gatsby-plugin-altair-graphql/&quot;&gt;gatsby plugin&lt;/a&gt; before, I hadn’t actually built anything with gatsby. Starting this new blog was an opportunity to change that.&lt;/p&gt;
+&lt;p&gt;For my setup, I decided to start off with hosting the blog on &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub pages&lt;/a&gt;. &lt;a href=&quot;https://github.com/features/actions&quot;&gt;GitHub actions&lt;/a&gt; made sense as the perfect tool for continuous deployment of the site, which also happened to be the first time I am using GitHub actions.&lt;/p&gt;
+&lt;p&gt;After a couple of hours spent figuring out how to properly setup everything, I finally had the blog live and running at &lt;a href=&quot;https://xkojimedia.github.io/&quot;&gt;xkojimedia.github.io&lt;/a&gt; with a minimal template.&lt;/p&gt;
+&lt;p&gt;Here I would go over how I was able to setup everything.&lt;/p&gt;
+&lt;h3&gt;What is Gatsby and why should I be using it?&lt;/h3&gt;
+&lt;p&gt;Quoting from their site,&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A salted duck egg is a Chinese preserved food product made by soaking duck
-eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-charcoal paste. The eggs may also be sold with the salted paste removed,
-wrapped in plastic, and vacuum packed. From the salt curing process, the
-salted duck eggs have a briny aroma, a gelatin-like egg white and a
-firm-textured, round yolk that is bright orange-red in color.&lt;/p&gt;
+&lt;p&gt;Gatsby is a blazing fast modern site generator for React.&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;That covers the basic cases where you would want to use Gatsby. However, given the rich plugin ecosystem that is available to, and created by the Gatsby community, you can use Gatsby for a whole lot more use cases, like a blog, ecommerce platformm, etc. It is also built with the best practices in mind for the best user experience, including optional offline support for PWAs.&lt;/p&gt;
+&lt;p&gt;The development experience while working with Gatsby is also great. There are several starter repos to help get you started quickly using Gatsby. The one I would be using is &lt;a href=&quot;https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/&quot;&gt;gatsby-starter-blog&lt;/a&gt;. I chose it since it is one of the most popular starters for creating blogs with Gatsby.&lt;/p&gt;
+&lt;h3&gt;Setting things up&lt;/h3&gt;
+&lt;p&gt;First, make sure that you have the latest version of node installed (Gatsby aims to support any node version that hasn’t reached it’s &lt;em&gt;End of Life&lt;/em&gt; status, but it is always safer to just use the latest version and not have to check if your node version is too old). &lt;/p&gt;
+&lt;p&gt;Run &lt;code class=&quot;language-text&quot;&gt;node -v&lt;/code&gt; in a terminal to see which version of Node.js you have.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;node -v
+v12.16.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next, install the gatsby CLI package globally on your machine, to enable you run gatsby commands.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; -g gatsby-cli&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once gatsby-cli is installed, create a new gatsby project using the &lt;a href=&quot;https://github.com/gatsbyjs/gatsby-starter-blog&quot;&gt;gatsby-starter-blog&lt;/a&gt; starter, and call it whatever you would like. For the sake of this tutorial, we would call it &lt;strong&gt;my-blog&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This would create a &lt;strong&gt;my-blog&lt;/strong&gt; directory with the contents of the gatsby-starter-blog repo and install the dependencies.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: It removes the .git directory from the new project, so the project isn’t a repository pointing to the starter. So no need for you to look for that.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Once the process is completed, you can &lt;code class=&quot;language-text&quot;&gt;cd&lt;/code&gt; into the new directory and run &lt;code class=&quot;language-text&quot;&gt;npm run develop&lt;/code&gt; (&lt;code class=&quot;language-text&quot;&gt;yarn develop&lt;/code&gt;) or &lt;code class=&quot;language-text&quot;&gt;gatsby develop&lt;/code&gt;. I would recommend running &lt;code class=&quot;language-text&quot;&gt;npm run develop&lt;/code&gt; (or &lt;code class=&quot;language-text&quot;&gt;yarn develop&lt;/code&gt; using yarn) since this would use the local version of gatsby installed in the project, as opposed to using the globally installed gatsby command. This helps avoid issues with different versions of the gatsby binary used in different projects, so each project uses the gatsby version specific to the project.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note: The starter comes with both &lt;code class=&quot;language-text&quot;&gt;package-lock.json&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;yarn.lock&lt;/code&gt; files. I assume this is to give users the option to choose between yarn and npm. I would recommend choosing one of the two package managers early on, and delete the lock file for the other package manager, to avoid confusion later in the future.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Running the develop script would compile the assets for the site, and watch the files for changes (Gatsby uses webpack underneath for bundling). At this point, open &lt;a href=&quot;http://localhost:8000&quot;&gt;http://localhost:8000&lt;/a&gt; to see the blog.&lt;/p&gt;
+&lt;p&gt;Easy! Now you have a minimal blog setup that actually works. You can make changes to any of the .md files in &lt;code class=&quot;language-text&quot;&gt;content/blog&lt;/code&gt; directory, and you should see the changes reflected on the site. For further details on how to customize the blog, that is beyond the scope of this post. You can go through the README file that comes with the project, and also checkout the Gatsby docs.&lt;/p&gt;
+&lt;h3&gt;Setting up GitHub Pages&lt;/h3&gt;
+&lt;p&gt;GitHub allows you setup &lt;a href=&quot;https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site&quot;&gt;user, organization and project sites&lt;/a&gt;. For project sites, you can choose to serve the files from the &lt;code class=&quot;language-text&quot;&gt;/docs&lt;/code&gt; folder of the repo of the project, the &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch or the &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt; branch of your project repo. For user/organization sites, you only have the options of serving the public files from the &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt; branch of a repo. You would need to create a repo called &lt;code class=&quot;language-text&quot;&gt;&amp;lt;user&amp;gt;.github.io&lt;/code&gt; I chose to host the blog as an organization site with the files served from the &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch of the repo. For the gatsby project, the files being served are stored in the &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt; directory after building the project. That is the part we would need in the github pages repo. We would need to have a repo for the project, and copy over the &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt; content into the github pages repo.&lt;/p&gt;
+&lt;p&gt;Now initialize the git repo in the project if you haven’t already done that already (using &lt;code class=&quot;language-text&quot;&gt;git init&lt;/code&gt;) and commit that into GitHub. Also create the user or organization site. Let’s assume the username is &lt;strong&gt;blogger&lt;/strong&gt;. You would create a repo called &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt;. Build the project using &lt;code class=&quot;language-text&quot;&gt;yarn build&lt;/code&gt; and copy the contents of the &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; directory into the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo and commit it. If all goes well, you should be able to see the site live at &lt;a href=&quot;https://blogger.github.io&quot;&gt;https://blogger.github.io&lt;/a&gt; URL. That’s a milestone! 🎉&lt;/p&gt;
+&lt;p&gt;Next thing we need to do is setup automatically copying the public assets into the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo.&lt;/p&gt;
+&lt;h3&gt;Continuous delivery using GitHub Actions&lt;/h3&gt;
+&lt;p&gt;GitHub actions is a new workflow automation tool provided by GitHub. It provides similar functionality available in CI/CD tools like Travis CI, appveyor, circle CI, etc. I would be using it since it is a free automation tool and integrates well with GitHub in a seamless and easy way.&lt;/p&gt;
+&lt;p&gt;We would create a GitHub action workflow that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;checks out the repository in a workflow runner&lt;/li&gt;
+&lt;li&gt;installs the node modules&lt;/li&gt;
+&lt;li&gt;builds the package&lt;/li&gt;
+&lt;li&gt;copies the public assets into the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We’d create the workflow in &lt;code class=&quot;language-text&quot;&gt;.github/workflows/pages.yml&lt;/code&gt; with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; GitHub Pages
+
+&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; master &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v2
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Use Node.js
+      &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;node@v1
+      &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;12.x&apos;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; yarn
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+        git config --global user.email &quot;&amp;lt;your-email-address&gt;&quot;
+        git config --global user.name &quot;&amp;lt;your-name&gt;&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; yarn deploy
+      &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;PA_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; secrets.PA_TOKEN &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;CI&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There are a number of things going on here, so let’s break it down.&lt;/p&gt;
+&lt;p&gt;First we name the workflow as &lt;code class=&quot;language-text&quot;&gt;GitHub Pages&lt;/code&gt;.
+We specify that the workflow should be run whenever any commit is pushed to the &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch.
+A &lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt; job is specified to run on the latest ubuntu VM with the following steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;uses the &lt;a href=&quot;https://github.com/marketplace/actions/checkout&quot;&gt;Checkout&lt;/a&gt; GitHub action to checkout the repo in the workflow&lt;/li&gt;
+&lt;li&gt;uses the &lt;a href=&quot;https://github.com/marketplace/actions/setup-node-js-environment&quot;&gt;Setup Node.js environment&lt;/a&gt; GitHub action to get the workflow environment setup for Node.js using the latest node 12 version.&lt;/li&gt;
+&lt;li&gt;run &lt;code class=&quot;language-text&quot;&gt;yarn&lt;/code&gt; to install the node modules&lt;/li&gt;
+&lt;li&gt;configure git to be able to push to the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo&lt;/li&gt;
+&lt;li&gt;run &lt;code class=&quot;language-text&quot;&gt;yarn deploy&lt;/code&gt; script (which we would define later) which will build and deploy the project to the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo. Specify &lt;code class=&quot;language-text&quot;&gt;PA_TOKEN&lt;/code&gt; environment variable that would be used by the &lt;code class=&quot;language-text&quot;&gt;deploy&lt;/code&gt; script to authenticate pushing to the repo. The &lt;code class=&quot;language-text&quot;&gt;PA_TOKEN&lt;/code&gt; is your &lt;a href=&quot;https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line&quot;&gt;personal access token&lt;/a&gt; with permission to write to the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo. To create a personal access token, go to your &lt;a href=&quot;https://github.com/settings/tokens/new&quot;&gt;tokens settings&lt;/a&gt; page and select the &lt;code class=&quot;language-text&quot;&gt;repo&lt;/code&gt; scope. After creating the personal access token, set the token as the &lt;code class=&quot;language-text&quot;&gt;PA_TOKEN&lt;/code&gt; secret in the project repo by going to the repo &lt;code class=&quot;language-text&quot;&gt;Settings -&amp;gt; Secrets -&amp;gt; Add a new secret&lt;/code&gt;. Now you can access the secret in the workflow using &lt;code class=&quot;language-text&quot;&gt;${{ secrets.PA_TOKEN }}&lt;/code&gt;. More information about secrets in workflows can be found &lt;a href=&quot;https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the deploy script, we would use the &lt;a href=&quot;https://www.npmjs.com/package/gh-pages&quot;&gt;gh-pages&lt;/a&gt; npm package to push the github pages assets into the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo using &lt;code class=&quot;language-text&quot;&gt;gh-pages -d public -b master -r &amp;quot;https://&amp;lt;your-username&amp;gt;:$PA_TOKEN@github.com/blogger/blogger.github.io.git&amp;quot;&lt;/code&gt;. This command specifies the &lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt; directory as the source of the github pages, specifies the &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt; branch, and specifies the remote repo as &lt;code class=&quot;language-text&quot;&gt;https://&amp;lt;your-username&amp;gt;:$PA_TOKEN@github.com/blogger/blogger.github.io.git&lt;/code&gt;. The URL specifies the GitHub HTTP URL along with the username and password used for the authentication of the git operations. You specify your username and the &lt;code class=&quot;language-text&quot;&gt;PA_TOKEN&lt;/code&gt; variable replaces your password. &lt;em&gt;You should never use your actual password in automation scripts. Always make use of access tokens that have the scope you need for that script.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Your deploy script in the &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; file would look something like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  ...
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    ...
+    &lt;span class=&quot;token property&quot;&gt;&quot;deploy&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;gatsby build &amp;amp;&amp;amp; gh-pages -d public -b master -r \&quot;https://blogger:$PA_TOKEN@github.com/blogger/blogger.github.io.git\&quot;&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s it! Now you push your changes to GitHub, your GitHub action workflow should pick up your changes and run the workflow. You can find the running GitHub actions in the Actions menu in the project repo.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/e1596/salty_egg.jpg&quot;
+    href=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/7da7d/github-actions-menu.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEEBf/aAAwDAQACEAMQAAABgik0dXC//8QAGRABAAMBAQAAAAAAAAAAAAAAAQACEhEy/9oACAEBAAEFAkqW2DlnRj73yf/EABcRAQADAAAAAAAAAAAAAAAAAAAREkH/2gAIAQMBAT8B1WX/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQL/2gAIAQIBAT8Bi6f/xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIRISIxMv/aAAgBAQAGPwK9GNocyS8hCj//xAAbEAADAQADAQAAAAAAAAAAAAABESEAMUGBof/aAAgBAQABPyGxNMfrLHmCDZmAzzvJJDjEQCHv/9oADAMBAAIAAwAAABDIL//EABYRAQEBAAAAAAAAAAAAAAAAAAERAP/aAAgBAwEBPxARhylZv//EABgRAAIDAAAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EFoktI//xAAdEAEBAAICAwEAAAAAAAAAAAABEQAxIWFBcYHh/9oACAEBAAE/EEbMLQ0fMHDVaPIXyI4pk4JUnWacNCtO8ojDE9TGIYES7/Jn/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 10.81081081081081%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAaElEQVQI1z2O2QoDMQwD9/8/tk3j+MrRqZeFPgijQTK65tpob0h7IRaP9JbzaU57OyLlhzKKdVHUiqk9dxgeWZpETq5zvmQ44Yp7FEyiAqMKQ5LeAtXE3MkqWD3JOf/Z26+9OeewatwPDgqbeOmci30AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Chinese Salty Egg&quot;
-        title=&quot;Chinese Salty Egg&quot;
-        src=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/1c72d/salty_egg.jpg&quot;
-        srcset=&quot;/static/8058f3f26913fea3b6a89a73344fe94a/a80bd/salty_egg.jpg 148w,
-/static/8058f3f26913fea3b6a89a73344fe94a/1c91a/salty_egg.jpg 295w,
-/static/8058f3f26913fea3b6a89a73344fe94a/1c72d/salty_egg.jpg 590w,
-/static/8058f3f26913fea3b6a89a73344fe94a/a8a14/salty_egg.jpg 885w,
-/static/8058f3f26913fea3b6a89a73344fe94a/fbd2c/salty_egg.jpg 1180w,
-/static/8058f3f26913fea3b6a89a73344fe94a/e1596/salty_egg.jpg 2048w&quot;
+        alt=&quot;github actions menu&quot;
+        title=&quot;github actions menu&quot;
+        src=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/fcda8/github-actions-menu.png&quot;
+        srcset=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/12f09/github-actions-menu.png 148w,
+/static/af52c53ca5744fbfa9cb4808875308fd/e4a3f/github-actions-menu.png 295w,
+/static/af52c53ca5744fbfa9cb4808875308fd/fcda8/github-actions-menu.png 590w,
+/static/af52c53ca5744fbfa9cb4808875308fd/efc66/github-actions-menu.png 885w,
+/static/af52c53ca5744fbfa9cb4808875308fd/c83ae/github-actions-menu.png 1180w,
+/static/af52c53ca5744fbfa9cb4808875308fd/7da7d/github-actions-menu.png 2120w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Once the action workflow is completed, you should see the new public assets in the &lt;code class=&quot;language-text&quot;&gt;blogger.github.io&lt;/code&gt; repo.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;For a simple blog, Gatsby works well with GitHub Pages for hosting and GitHub actions for automating the workflow. For more dynamic content and sites, you would need some other hosting platform as GitHub Pages handles hosting static pages. However, you can still make use of Gatsby and GitHub actions for more dynamic sites.&lt;/p&gt;
+&lt;p&gt;Did you find this useful? Do you think there are better approaches to take, or questions? You can reach out to me on twitter &lt;a href=&quot;https://twitter.com/imolorhe&quot;&gt;@imolorhe&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>
