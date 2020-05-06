@@ -1,4 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[XKoji.dev]]></title><description><![CDATA[Website for all things XkojiMedia]]></description><link>https://www.xkoji.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 05 May 2020 18:48:32 GMT</lastBuildDate><item><title><![CDATA[Local vs global npm dependencies]]></title><description><![CDATA[Working on Node.js based applications usually requires you to install dependencies that are needed to provide functionality within the…]]></description><link>https://www.xkoji.dev/blog/local-vs-global-npm-dependencies/</link><guid isPermaLink="false">https://www.xkoji.dev/blog/local-vs-global-npm-dependencies/</guid><pubDate>Mon, 04 May 2020 19:49:11 GMT</pubDate><content:encoded>&lt;p&gt;Working on Node.js based applications usually requires you to install dependencies that are needed to provide functionality within the project, either for development or as part of the project logic at runtime. A number of the development dependencies provide a command line interface for interacting with the package and making use of the functionality for things like scaffolding, compiling, bundling, publishing, etc.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[XKoji.dev]]></title><description><![CDATA[Website for all things XkojiMedia]]></description><link>https://www.xkoji.dev</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 May 2020 22:03:55 GMT</lastBuildDate><item><title><![CDATA[Working with file uploads using Altair GraphQL]]></title><description><![CDATA[It’s no news that GraphQL is still the new kid on the block and has come to stay (don’t worry REST APIs still have their place 😄). As the…]]></description><link>https://www.xkoji.dev/blog/working-with-file-uploads-using-altair-graphql/</link><guid isPermaLink="false">https://www.xkoji.dev/blog/working-with-file-uploads-using-altair-graphql/</guid><pubDate>Wed, 06 May 2020 21:21:04 GMT</pubDate><content:encoded>&lt;p&gt;It’s no news that GraphQL is still the new kid on the block and has come to stay (don’t worry REST APIs still have their place 😄). As the GraphQL community grows and the specification is developed, there remains a few questions yet to be answered. One of such questions was about file uploads.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;How do we upload files using GraphQL?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Are there any guidelines for uploading files using GraphQL?&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Well there isn’t one from the &lt;a href=&quot;https://github.com/graphql/graphql-spec&quot;&gt;GraphQL team&lt;/a&gt; yet. So it is still left to you to define how you would want to handle file (binary data) uploads. You could always encode the data as base64 and pass the encoded string along to the server. You could also upload the files to a cloud storage service (or any other storage service) from the client and just pass the URL returned from the storage service through a GraphQL mutation. Whichever option you choose, it’s not ideal to work that way, especially considering that traditional methods of posting data to the server (submitting a form, sending a form data to an API) are more efficient in handling file uploads. So why would GraphQL be less efficient?&lt;/p&gt;
+&lt;p&gt;I can only assume, but I guess that was the question Jayden had in mind when he created the &lt;a href=&quot;https://github.com/jaydenseric/graphql-multipart-request-spec&quot;&gt;GraphQL multipart request specification&lt;/a&gt;. From the spec readme, the specification is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An interoperable multipart form field structure for GraphQL requests, used by various file upload client/server implementations.&lt;/p&gt;
+&lt;p&gt;It’s possible to implement:&lt;/p&gt;
+&lt;p&gt;Nesting files anywhere within operations (usually in variables).&lt;/p&gt;
+&lt;p&gt;Operation batching.&lt;/p&gt;
+&lt;p&gt;File deduplication.&lt;/p&gt;
+&lt;p&gt;File upload streams in resolvers.&lt;/p&gt;
+&lt;p&gt;Aborting file uploads in resolvers.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TL;DR, the specification enables you to upload files using the multipart format, which was designed for sending binary data through HTTP from the client to the server. There are several &lt;a href=&quot;https://github.com/jaydenseric/graphql-multipart-request-spec#implementations&quot;&gt;library implementations&lt;/a&gt; of this GraphQL spec already in Node.js, PHP, Python, Go and Ruby, so should be easy to implement without having to create it from scratch.
+&lt;a href=&quot;https://altair.sirmuel.design/&quot;&gt;Altair GraphQL Client&lt;/a&gt; (from v2.0.5) now allows you to upload files to your server if you have implemented the GraphQL multipart request spec in your server. It supports uploading both single files and an array of files (using the dot notation e.g. for an array named &lt;code class=&quot;language-text&quot;&gt;fileList&lt;/code&gt;, you define the files as &lt;code class=&quot;language-text&quot;&gt;fileList.0&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;fileList.1&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;fileList.2&lt;/code&gt; and so on).&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/da9a8e9e6bb790432e84790776b57f75/97a96/singlefile.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.22543352601156%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABL0lEQVQoz5WSa07DMBCEc6Ymdvzc+BEncdKWCgkJOEMF4hxcmokjqlLgR6WxFHvn212vU3FhG6GYtL6fIE1R2WC6/kY4h8p36vfD++fry/lYAWbCGPLWRXK9NI4JDVM/LHFYfIJmCqPQXdNqiAvDpdGuk5Yqhr3qbJhCypoCwjsmNfWnfDiMc0p5SLlPWRjPtVt5rmqudkzVTFUlEzFKigKy7LgscDzm/cO0gJ82WLu6tXUhL6rQc9OqWhCSAStZJdpeew6jj1MXMYsV3qI/4K0OroqWSiLTcG0oAnBx+lZW1tf8F4xV5jx3YdxEfkDla/jfyljWpc0U0gwf+DvhYoUD2H2VtUuI4SXPbx+PT88YPqYA5nIRl5a/4VbR9vrQkPf4VWBi6/vZKxFObkjoCzl1nqQMb0wuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Adding file for upload (single file)&quot;
+        title=&quot;Adding file for upload (single file)&quot;
+        src=&quot;/static/da9a8e9e6bb790432e84790776b57f75/1e043/singlefile.png&quot;
+        srcset=&quot;/static/da9a8e9e6bb790432e84790776b57f75/991de/singlefile.png 173w,
+/static/da9a8e9e6bb790432e84790776b57f75/e4d6b/singlefile.png 345w,
+/static/da9a8e9e6bb790432e84790776b57f75/1e043/singlefile.png 690w,
+/static/da9a8e9e6bb790432e84790776b57f75/e3189/singlefile.png 1035w,
+/static/da9a8e9e6bb790432e84790776b57f75/b1001/singlefile.png 1380w,
+/static/da9a8e9e6bb790432e84790776b57f75/97a96/singlefile.png 2400w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f12257fd1c2f773f795e1ea38329ef6f/97a96/multiplefiles.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.22543352601156%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABd0lEQVQoz3WS207DMAyG90qwNk2yHJtDm2RtBwMJuENC4gaJF0CIe54K7cX424GYEEhu2rr+bP92V4TKinLChHG99WmjHJctTqG9MGE+F4Pny6mD38bn97vbp3FFqKiopDpq3zNpq2azJlwa70N2sdhQ2lh029GNWTcCXxFfM8GNZlKtarxQQVQkXAODneOjdkOZtl1xHu30LiQqDOHqmHqJ4euaL5Xh+vYeYXRexv3FsJtiyjH5kJiwNdeIrE4i58pnFQVwCkNeHi53eSwx9TEf4Ua6WlimJOFf/GoJbbmwa4Ks6ELgAZrzuJ+20xBTDMm6HvA5gLlHXjXflXHZWVjGVDBwmLJRmnAxXd4Mu6u+DF0Gj4GddvcDS+2xJBiXDiSyKBu2ZRrzmALaTs7/D29MoBAj9P3D47i7xsqRwoYs2067Xi/7/xvG9KAQUhumPg6Hl9c3wiR+hlkChIDHGcrfcMMVbsdRGdehLILmzTN5YgqeXyTsE/88oYBzgn6hAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Adding files for upload (list of files)&quot;
+        title=&quot;Adding files for upload (list of files)&quot;
+        src=&quot;/static/f12257fd1c2f773f795e1ea38329ef6f/1e043/multiplefiles.png&quot;
+        srcset=&quot;/static/f12257fd1c2f773f795e1ea38329ef6f/991de/multiplefiles.png 173w,
+/static/f12257fd1c2f773f795e1ea38329ef6f/e4d6b/multiplefiles.png 345w,
+/static/f12257fd1c2f773f795e1ea38329ef6f/1e043/multiplefiles.png 690w,
+/static/f12257fd1c2f773f795e1ea38329ef6f/e3189/multiplefiles.png 1035w,
+/static/f12257fd1c2f773f795e1ea38329ef6f/b1001/multiplefiles.png 1380w,
+/static/f12257fd1c2f773f795e1ea38329ef6f/97a96/multiplefiles.png 2400w&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You add your files in the variables pane, and the files are added to the request as variables when the request is sent to the server.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note:&lt;/strong&gt; The files don’t persist if you reload Altair, so you would have to select them again.&lt;/em&gt;&lt;/p&gt;
+&lt;h4&gt;Feedback&lt;/h4&gt;
+&lt;p&gt;Do you like this feature? Do you think it can be improved? Did you find a bug? Let me know what you think. Create &lt;a href=&quot;https://github.com/imolorhe/altair/issues/new/choose&quot;&gt;an issue&lt;/a&gt; on Github or add a comment to &lt;a href=&quot;https://github.com/imolorhe/altair/issues/537&quot;&gt;this issue&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Local vs global npm dependencies]]></title><description><![CDATA[Working on Node.js based applications usually requires you to install dependencies that are needed to provide functionality within the…]]></description><link>https://www.xkoji.dev/blog/local-vs-global-npm-dependencies/</link><guid isPermaLink="false">https://www.xkoji.dev/blog/local-vs-global-npm-dependencies/</guid><pubDate>Mon, 04 May 2020 19:49:11 GMT</pubDate><content:encoded>&lt;p&gt;Working on Node.js based applications usually requires you to install dependencies that are needed to provide functionality within the project, either for development or as part of the project logic at runtime. A number of the development dependencies provide a command line interface for interacting with the package and making use of the functionality for things like scaffolding, compiling, bundling, publishing, etc.&lt;/p&gt;
 &lt;p&gt;For these CLI-based dependencies, the author usually recommends installing the packages globally, for ease of use. However there are benefits to installing these dependencies locally instead of globally, which might not be immediately obvious.&lt;/p&gt;
 &lt;h3&gt;All project dependencies declared in a single place&lt;/h3&gt;
 &lt;p&gt;Whenever you install local dependencies, they are listed in the package.json file which acts as a manifest showing all the information about a package, including the dependencies it needs. This means if you install your global dependencies locally, it becomes obvious what all the dependencies of the project are.&lt;/p&gt;
@@ -217,7 +300,7 @@ A &lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt; job is specifie
 &lt;p&gt;That’s it! Now you push your changes to GitHub, your GitHub action workflow should pick up your changes and run the workflow. You can find the running GitHub actions in the Actions menu in the project repo.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 690px;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -228,20 +311,20 @@ A &lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt; job is specifie
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 10.81081081081081%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAaElEQVQI1z2O2QoDMQwD9/8/tk3j+MrRqZeFPgijQTK65tpob0h7IRaP9JbzaU57OyLlhzKKdVHUiqk9dxgeWZpETq5zvmQ44Yp7FEyiAqMKQ5LeAtXE3MkqWD3JOf/Z26+9OeewatwPDgqbeOmci30AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 10.404624277456648%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAaElEQVQI1z2O2QoDMQwD9/8/tk3j+MrRqZeFPgijQTK65tpob0h7IRaP9JbzaU57OyLlhzKKdVHUiqk9dxgeWZpETq5zvmQ44Yp7FEyiAqMKQ5LeAtXE3MkqWD3JOf/Z26+9OeewatwPDgqbeOmci30AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;github actions menu&quot;
         title=&quot;github actions menu&quot;
-        src=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/fcda8/github-actions-menu.png&quot;
-        srcset=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/12f09/github-actions-menu.png 148w,
-/static/af52c53ca5744fbfa9cb4808875308fd/e4a3f/github-actions-menu.png 295w,
-/static/af52c53ca5744fbfa9cb4808875308fd/fcda8/github-actions-menu.png 590w,
-/static/af52c53ca5744fbfa9cb4808875308fd/efc66/github-actions-menu.png 885w,
-/static/af52c53ca5744fbfa9cb4808875308fd/c83ae/github-actions-menu.png 1180w,
+        src=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/1e043/github-actions-menu.png&quot;
+        srcset=&quot;/static/af52c53ca5744fbfa9cb4808875308fd/991de/github-actions-menu.png 173w,
+/static/af52c53ca5744fbfa9cb4808875308fd/e4d6b/github-actions-menu.png 345w,
+/static/af52c53ca5744fbfa9cb4808875308fd/1e043/github-actions-menu.png 690w,
+/static/af52c53ca5744fbfa9cb4808875308fd/e3189/github-actions-menu.png 1035w,
+/static/af52c53ca5744fbfa9cb4808875308fd/b1001/github-actions-menu.png 1380w,
 /static/af52c53ca5744fbfa9cb4808875308fd/7da7d/github-actions-menu.png 2120w&quot;
-        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
