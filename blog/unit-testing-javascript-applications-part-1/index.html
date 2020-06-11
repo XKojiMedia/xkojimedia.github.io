@@ -82,7 +82,7 @@
 <li>the test cases provide some form of living documentation about your code. Test cases describe the various requirements your code handles, and gives examples of how to use your code in form of the tests.</li>
 </ul>
 <h2 id="pure-functions" style="position:relative;">Pure Functions</h2>
-<p>When a function always returns the same output everytime for a given set of inputs, and it doesn’t change anything else outside the scope of the input and output, then that function is called a <a href="https://www.wikiwand.com/en/Pure_function">pure function</a>. However if the function changes anything else (like mutating a referenced variable, performing I/O operations e.g. saving file to disk, making a network request, modifying the DOM), the function is no longer pure. The reason why this concept is important is because it is easy to predict the behavior of a pure function when using it than an impure function. Also it is very easy to test pure functions without much complexity or knowledge of the internal workings of the function. Let’s write a <code class="language-text">sum()</code> function that is not pure to compare with our previous versions.</p>
+<p>When a function always returns the same output everytime for a given set of inputs, and it doesn’t change anything else outside the scope of the input and output, then that function is called a <a href="https://www.wikiwand.com/en/Pure_function" target="_blank" rel="nofollow">pure function</a>. However if the function changes anything else (like mutating a referenced variable, performing I/O operations e.g. saving file to disk, making a network request, modifying the DOM), the function is no longer pure. The reason why this concept is important is because it is easy to predict the behavior of a pure function when using it than an impure function. Also it is very easy to test pure functions without much complexity or knowledge of the internal workings of the function. Let’s write a <code class="language-text">sum()</code> function that is not pure to compare with our previous versions.</p>
 <div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// Already loaded https://cdn.jsdelivr.net/npm/add@latest/index.min.js on the page</span>
 <span class="token keyword">const</span> <span class="token function-variable function">sum</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> window<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">[</span> a<span class="token punctuation">,</span> b <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -120,20 +120,20 @@
 <li><em>I think from a whitebox perspective when</em> I want to cover all the logical execution flows within the piece of code, and I use this to add extra test cases, making the test suite robust.</li>
 </ul>
 <h2 id="what-should-i-know-about-tdd" style="position:relative;">What should I know about TDD?</h2>
-<p><a href="https://www.wikiwand.com/en/Test-driven_development">Test Driven Development (TDD)</a> is an approach to development that involves defining test cases, and using those test cases to define what code needs to be written. According to Wikipedia,</p>
+<p><a href="https://www.wikiwand.com/en/Test-driven_development" target="_blank" rel="nofollow">Test Driven Development (TDD)</a> is an approach to development that involves defining test cases, and using those test cases to define what code needs to be written. According to Wikipedia,</p>
 <blockquote>
 <p>Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the code is improved so that the tests pass. This is opposed to software development that allows code to be added that is not proven to meet requirements.</p>
 </blockquote>
 <p>This means you end up writing your tests while writing the actual code, and you no longer have writing tests as a chore that you need to do at a later time. It also makes writing tests much easier, since you write your code with the tests in mind.</p>
 <p>One of the benefits of the test driven approach is that it helps you write much better code with much cleaner code structure.</p>
-<p>Following the TDD approach involves <a href="https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html">three laws</a> that you need to follow:</p>
+<p>Following the TDD approach involves <a href="https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html" target="_blank" rel="nofollow">three laws</a> that you need to follow:</p>
 <ol>
 <li>You must write a failing test before you write any production code.</li>
 <li>You must not write more of a test than is sufficient to fail, or fail to compile.</li>
 <li>You must not write more production code than is sufficient to make the currently failing test pass.</li>
 </ol>
 <h3 id="red-green-refactor-cycle" style="position:relative;">Red-Green-Refactor Cycle</h3>
-<p>The three laws of TDD gets expanded further into the <a href="https://www.jamesshore.com/Blog/Red-Green-Refactor.html"><strong>Red-Green-Refactor</strong></a> cycle. This basically says:</p>
+<p>The three laws of TDD gets expanded further into the <a href="https://www.jamesshore.com/Blog/Red-Green-Refactor.html" target="_blank" rel="nofollow"><strong>Red-Green-Refactor</strong></a> cycle. This basically says:</p>
 <ul>
 <li>Create a unit test that fails (<emphasis style="color: var(--red);">RED</emphasis>)</li>
 <li>Write production code that makes that test pass (<emphasis style="color: var(--green);">GREEN</emphasis>)</li>
