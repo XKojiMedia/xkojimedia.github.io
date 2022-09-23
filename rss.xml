@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[XKoji.dev]]></title><description><![CDATA[Website for all things XkojiMedia]]></description><link>https://www.xkoji.dev</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 27 Mar 2021 04:11:25 GMT</lastBuildDate><item><title><![CDATA[Altair GraphQL Client v4 now available]]></title><description><![CDATA[Altair v4 has been released! It is a mojor update that comes with several signifant changes as well as other small improvements and fixes in…]]></description><link>https://www.xkoji.dev/blog/altair-graphql-client-v4-now-available/</link><guid isPermaLink="false">https://www.xkoji.dev/blog/altair-graphql-client-v4-now-available/</guid><pubDate>Thu, 25 Mar 2021 22:45:23 GMT</pubDate><content:encoded>&lt;p&gt;Altair v4 has been released! It is a mojor update that comes with several signifant changes as well as other small improvements and fixes in the application.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[XKoji.dev]]></title><description><![CDATA[Website for all things XkojiMedia]]></description><link>https://www.xkoji.dev</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Sep 2022 11:02:18 GMT</lastBuildDate><item><title><![CDATA[Altair GraphQL introducing remote sync functionality - now in beta]]></title><description><![CDATA[We have released Altair GraphQL Client v5.0.0 recently and with it, comes a brand refresh, but also the beta release of the remote sync…]]></description><link>https://www.xkoji.dev/blog/altair-graphql-introducing-remote-sync-functionality---now-in-beta/</link><guid isPermaLink="false">https://www.xkoji.dev/blog/altair-graphql-introducing-remote-sync-functionality---now-in-beta/</guid><pubDate>Wed, 21 Sep 2022 17:31:14 GMT</pubDate><content:encoded>&lt;p&gt;We have released Altair GraphQL Client v5.0.0 recently and with it, comes a brand refresh, but also the beta release of the remote sync functionality.&lt;/p&gt;
+&lt;p&gt;Traditionally, Altair has been delightful for developers working locally on their own, with the ability to store queries and collections to disk. Sharing these documents across devices and teammates by manually copying the files over is not a great experience as it requires a manual process, and the copied files can easily get out of sync.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1016px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABX0lEQVQoz21RW07DMBD0YZHgBhwCxAE4ET8VHyDU0EfUSmnSPO0kTey8Bo+rVhC60mrj7Hp2ZixgQ0oJ3/cRBAG85RJRFPE3pmn6k79Da41MJQjlHrEKIZVElmYQp9Pp3ExTxHGMsizdeQ7IMMa4vrF9ow0O2R4f0Rs28RfSPMF2s4UYxxFd14HAHP4dc0AuSpLEzXadcQzrukbfDaiqCk3TQPCDktfrNXa7HTzPw+p79Y8lYxgGtG17BQ+kj7Sy9th2URSIj0cIDhM0DENkWebyEByQ5/kVbJxGV/u+d+x4Jpu20XaBdiy5gH1BdpTNmibWx2PsvLolmRcuthBYlQraaMea6STzgx4qpc5b7ZkXb70wJXPmCmjvjMOEoRtdnQZAsEnA1L4yZd56kAsg56jkAki2ZVtANilUm6HUOQQ9o34CSmvsHGietIdVW+/KWuH18xFPizu8vD/geXGPH89CtiokDfzpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Synced collection on device #1&quot;
+        title=&quot;Synced collection on device #1&quot;
+        src=&quot;/static/b48948318fc911b028bc2d51bb9e7175/f4281/synced-collection-1.png&quot;
+        srcset=&quot;/static/b48948318fc911b028bc2d51bb9e7175/5a46d/synced-collection-1.png 300w,
+/static/b48948318fc911b028bc2d51bb9e7175/0a47e/synced-collection-1.png 600w,
+/static/b48948318fc911b028bc2d51bb9e7175/f4281/synced-collection-1.png 1016w&quot;
+        sizes=&quot;(max-width: 1016px) 100vw, 1016px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 942px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABd0lEQVQoz2VSy3KCQBDkL/JQEAR5LiyIoKB4MElVrEr0kMr/f0pnehXLMocp2GW6p7sHK5j7CPwAVVmhWTVYNy36TY+6qs39wl88VACfmHmANE6htUZZlVLylHcrDC5NKlPYdr2Qddi0ayFcwpnamNnOrXh2nZnpn7seiO2GFQ6/DQ4/ImRoYfneHFTJ6XEYIVc5pq8TvDw9G/B9kZBkdKHzwqjUOkdVF1B5KqIyWNEiRBzFWIrlXb/FfjdgPwwYtjuxlBgVHMS+sbIkgUozuRdcp9AOGt7MRS4uDSGn0u7p6xsfb+84fh5xPp0NKZUQzEj4zLPc3DMWlSqkSSqVIBFRFGaRzKiUaYWAy0KbyqRxzDe4LuESTYBElHMxdMABWZKhkKhWyxoWZTI3NnNLVET7tOlMprIM+99SiOGZQkhI7LgLyxYQm/hRF4Uh4lJG8H2RhFlRPc9miUIYiRNaJoexHF7DHu0+Ej0S0upFBP+KAq7n336xP89KCYXLeeLWAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Synced collection on device #2&quot;
+        title=&quot;Synced collection on device #2&quot;
+        src=&quot;/static/98a386136b592ea348461a328709ecff/f1901/synced-collection-2.png&quot;
+        srcset=&quot;/static/98a386136b592ea348461a328709ecff/5a46d/synced-collection-2.png 300w,
+/static/98a386136b592ea348461a328709ecff/0a47e/synced-collection-2.png 600w,
+/static/98a386136b592ea348461a328709ecff/f1901/synced-collection-2.png 942w&quot;
+        sizes=&quot;(max-width: 942px) 100vw, 942px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now with the newly added remote sync functionality, once a collection is synced, it is no longer local to the device but is accessible from any device where the account is logged in, and changes made to the collection becomes immediately available to the other devices as well. One thing that is not yet available though is the ability to share the documents to other people or within a team.&lt;/p&gt;
+&lt;p&gt;This feature is still in beta though, and so there will still be some kinks that need to be addressed before it becomes stable enough for General Availability. While in beta, the number of queries that can be created are limited to 25 which should be large enough to checkout this feature. As it becomes more stable, the limit would be gradually increased. We can’t wait to fully release this but we would need your help testing it and providing us with lots of feedback to improve it!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 466px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB6klEQVQ4y5WTW2/aQBCF+RcFjD1783XXNrZJaAq5VG2f276XSCVq/v8/OJ1dIxIiQtWH0eDF++nMmeOJSBKIhCDisdvSonENXGWhpQIdzsf3xvJnUhFSy+UIWS1CaaUxeQt0lUNbtwFspD4DJNAigc4I5ZVA9VGgXLOQTxJFnp4HDt2A2tbvK2Sg0h7CsEHAKAOnJYyg88C+61FzPw+kF+ANK7wWKGqDgoEukww8XqBXCvsLCl9GtjcSec+9N3wmMVjlFRKSRYw4WhyBq34I/RLQlKPCcsUKV4TcGeR+KR5WZjkvoQqXnR0Vvr/l06V4cNYIpLlEpnjkaDbHw909fn7/McaGlXVt90+gMhT8y5c81dpAk0JXMdBfyIxBVZRvPLwwMp8pzmHpF9JxBksNm7KfWvyvh3QINnGwecNrNQKLNABTKQ6xif0YFF70Hnrgslmy8jRAJAnIQxdxDJnXkJkFyRLJNAoWJIvxC5ok8wRFL+A2IvzhgcumRZHm4Xn2YYr5dIYFe+39PiqWBsr2J5HzNaGIPXQsu/Xh5m3pNAC/ffmKz/cP2G42uNve4np1hdvNdrSBLRIkIavu5KPw0wYPPdQrVUKGsTsGPu2f8Phrh+c/z/x7j/3vPR53OxQcMe958DKKTmC+/gKqr5DUcrvg+gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Account login&quot;
+        title=&quot;Account login&quot;
+        src=&quot;/static/877599887079813879fde5451eb16ef4/fc1a1/account-login.png&quot;
+        srcset=&quot;/static/877599887079813879fde5451eb16ef4/5a46d/account-login.png 300w,
+/static/877599887079813879fde5451eb16ef4/fc1a1/account-login.png 466w&quot;
+        sizes=&quot;(max-width: 466px) 100vw, 466px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;As with all other beta features, to enable this new feature, you should enable experimental features from the settings, and then you will have access to this feature (you can access the login dialog by clicking the icon at the bottom left corner). &lt;strong&gt;NOTE: It does not work in Mozilla or Chrome extensions just yet but support should be coming there soon.&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;Looking forward to hear your thoughts and feedback!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Altair GraphQL Client v4 now available]]></title><description><![CDATA[Altair v4 has been released! It is a mojor update that comes with several signifant changes as well as other small improvements and fixes in…]]></description><link>https://www.xkoji.dev/blog/altair-graphql-client-v4-now-available/</link><guid isPermaLink="false">https://www.xkoji.dev/blog/altair-graphql-client-v4-now-available/</guid><pubDate>Thu, 25 Mar 2021 22:45:23 GMT</pubDate><content:encoded>&lt;p&gt;Altair v4 has been released! It is a mojor update that comes with several signifant changes as well as other small improvements and fixes in the application.&lt;/p&gt;
 &lt;p&gt;Starting with the JS framework itself, we have migrated from angular v9 to angular v11 (the latest version at the time of this release) &lt;a href=&quot;https://github.com/imolorhe/altair/pull/1461&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;#1461&lt;/a&gt;. This brings with it all the goodies from both &lt;a href=&quot;https://blog.angular.io/version-10-of-angular-now-available-78960babd41&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;version 10&lt;/a&gt; and &lt;a href=&quot;https://blog.angular.io/version-11-of-angular-now-available-74721b7952f7&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;11&lt;/a&gt;, which includes (among other things) a faster, more performant application overall. In the process we also updated &lt;a href=&quot;https://ng.ant.design/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;ant design framework&lt;/a&gt; to v11, &lt;a href=&quot;https://ngrx.io/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;ngrx&lt;/a&gt; to v11 and several other packages.&lt;/p&gt;
 &lt;p&gt;As part of the performance improvements, we migrated from using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;localStorage&lt;/a&gt; to store and manage data, and instead we store data in &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;indexedDB&lt;/a&gt; &lt;a href=&quot;https://github.com/imolorhe/altair/pull/1483&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;#1483&lt;/a&gt;. Given the synchronous nature of localStorage, it blocks the main thread whenever it stores data. We managed to improve this thread blocking issue by deferring writes using the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;requestIdleCallback&lt;/code&gt;&lt;/a&gt; API but that didn’t completely eliminate the blocking issue. It becomes even more obvious when dealing with very large schema setups. IndexedDB has an asynchronous API meaning it doesn’t block the thread when writing or reading from storage. This leads to a more fluid and consistent user experience… and &lt;strong&gt;a much BIGGER storage&lt;/strong&gt; (now you can use Altair to load up that 1GB schema 😄)!&lt;/p&gt;
 &lt;p&gt;We introduced &lt;a href=&quot;https://altair.sirmuel.design/docs/features/prerequest-scripts.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;Post request scripts&lt;/a&gt; &lt;a href=&quot;https://github.com/imolorhe/altair/pull/1467&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;#1467&lt;/a&gt; which enables you perform logic on the result of your query. Assuming you want to run a mutation query to login your user and retrieve the auth token, using the post request script you can now retrieve the token from the response &lt;code class=&quot;language-text&quot;&gt;altair.response.body.data.login.token&lt;/code&gt; and set it in the currently active environment variable &lt;code class=&quot;language-text&quot;&gt;altair.helpers.setEnvironment(&amp;#39;auth_token&amp;#39;, token, true)&lt;/code&gt; and use the variable in the headers to authenticate subsequent requests! We also introduced response headers that come with the response from the server. This enables easier debugging with regards to the headers. &lt;em&gt;One important note about the response headers: the returned response headers in the browser clients (web app, browser extensions) are &lt;a href=&quot;https://developers.google.com/web/updates/2015/03/introduction-to-fetch#response_types&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;limited&lt;/a&gt;. However these response headers show up in the desktop apps.&lt;/em&gt;&lt;/p&gt;
